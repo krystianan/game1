@@ -9,7 +9,6 @@ var playerPointsElem = document.getElementById("js-playerPoints");
     playerNameElem = document.getElementById("js-playerName");
     computerPointsElem = document.getElementById("js-computerPoints");
 
-
 var pickRock = document.getElementById('js-playerPick_rock');
     pickPaper = document.getElementById('js-playerPick_paper');
     pickScissors = document.getElementById('js-playerPick_scissors');
@@ -36,10 +35,8 @@ function newGame()  {
             gameState = 'started';
             setGameElements();
             playerNameElem.innerHTML = player.name;
-            //setGamePoints();
     }
 }  
-
 
 function setGameElements () {
     switch(gameState) {
@@ -67,12 +64,9 @@ function getComputerPick() {
 
 function playerPick (playerPick) {
     var computerPick = getComputerPick();
-
     playerPickElem.innerHTML = playerPick;
     computerPickElem.innerHTML = computerPick;
-
     checkRoundWinner(playerPick, computerPick);
-
 }
 
 pickRock.addEventListener('click', function(){
@@ -87,19 +81,15 @@ pickScissors.addEventListener('click', function(){
     playerPick("nożyce");
 });
 
-
 function checkRoundWinner(playerPick, computerPick) {
   playerResultElem.innerHTML = computerResultElem.innerHTML = '';
-
   var winnerIs = 'player' ;
-
     if (playerPick == computerPick) {
         winnerIs = 'noone'; // remis
     } else if (
         (computerPick == 'kamień' &&  playerPick == 'nożyce') ||
         (computerPick == 'nożyce' &&  playerPick == 'papier') ||
         (computerPick == 'papier' &&  playerPick == 'kamień') ) {
-        
         winnerIs = 'computer';
     }
 
@@ -113,7 +103,8 @@ function checkRoundWinner(playerPick, computerPick) {
         computerPointsElem.innerHTML = computerScore;
     } 
      if(playerScore === 10  || computerScore === 10 ) {
-        checkWinner();}
+        checkWinner();
+    }
 }  
 
 function checkWinner (){
@@ -123,7 +114,7 @@ function checkWinner (){
         newGameElem.style.display =  "block";
         pickElem.style.display = "none";
         resultsElem.style.display = "block";
-    }else {
+    } else {
         alert("Koniec gry, przegrałeś !")
         newGameBtn.innerText = "Jeszcze raz";
         newGameElem.style.display =  "block";
