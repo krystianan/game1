@@ -23,12 +23,12 @@ var player = {
         name: '',
     };
 var playerScore = 0;   
-var computer = {
-    };
 var computerScore = 0;    
 
 function newGame()  {
     player.name = prompt("Wpisz swoje imie", 'imię gracza');
+    playerPointsElem.innerHTML = '0';
+    computerPointsElem.innerHTML = '0';
     if (player.name) {
             playerScore = 0;
             computerScore = 0;
@@ -115,10 +115,10 @@ function checkWinner (){
         pickElem.style.display = "none";
         resultsElem.style.display = "block";
     } else {
-        alert("Koniec gry, przegrałeś !")
+        alert("Koniec gry, przegrałeś !");
         newGameBtn.innerText = "Jeszcze raz";
         newGameElem.style.display =  "block";
         pickElem.style.display = "none";
         resultsElem.style.display = "block";
-    }    
+    } 
 }
